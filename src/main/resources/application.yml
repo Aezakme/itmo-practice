@@ -6,7 +6,21 @@ spring:
       WRITE_NULL_MAP_VALUES: false
     deserialization:
       FAIL_ON_UNKNOWN_PROPERTIES: false
+  datasource:
+    platform: POSTGRESQL
+    url: "jdbc:postgresql://localhost:5432/testDB"
+    username: root
+    password: example
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
 
+
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
 api:
   root: /
 
@@ -15,3 +29,4 @@ server:
 endpoints:
   cors:
     allowed-headers: "Content-Type"
+
