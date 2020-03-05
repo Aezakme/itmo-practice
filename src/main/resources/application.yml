@@ -1,11 +1,4 @@
 spring:
-  jackson:
-    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
-    serialization:
-      WRITE_DATES_AS_TIMESTAMPS: false
-      WRITE_NULL_MAP_VALUES: false
-    deserialization:
-      FAIL_ON_UNKNOWN_PROPERTIES: false
   datasource:
     platform: POSTGRESQL
     url: "jdbc:postgresql://localhost:5432/testDB"
@@ -14,8 +7,6 @@ spring:
   jpa:
     database: POSTGRESQL
     show-sql: true
-
-
     properties:
       hibernate:
         jdbc:
