@@ -23,7 +23,9 @@ public class OfficeController {
 
     @GetMapping(value = "/offices/{id}")
     public String getOfficePage(@PathVariable Long id) {
-        return officeService.getOfficesBooks(id);
+        return officeService.getOfficeInfo(id) +
+                "; Available books: "
+                + officeService.getOfficesBooks(id);
     }
 
 
