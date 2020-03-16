@@ -11,7 +11,7 @@ create table books
 create table offices
 (
     id      bigint                 not null,
-    "name"    character varying(255) not null,
+    "name"  character varying(255) not null,
     address character varying(255) not null,
     primary key (id)
 );
@@ -30,8 +30,9 @@ create table availability
 insert into books (id, title, author)
 values (0, 'first_book', 'test author'),
        (1, 'second_book', 'test author'),
-       (2, 'third_book', 'test author');
-       (3, 'fourth_book', 'test author');
+       (2, 'third_book', 'test author'),
+       (3, 'fourth_book', 'test author'),
+       (4, 'fifth_book', 'test author');
 
 insert into offices (id, name, address)
 values (0, 'first_office', 'posadskaya'),
