@@ -35,5 +35,4 @@ public class MasterController {
     public String putData(@RequestParam("key") String key, @RequestParam("value") String value) {
         return null;
     }
-
 }

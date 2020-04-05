@@ -1,9 +1,9 @@
 spring:
   datasource:
     platform: POSTGRESQL
-    url: "jdbc:postgresql://localhost:5432/testdb"
-    username: postgres
-    password: 1234
+    url: "jdbc:postgresql://localhost:5432/testDB"
+    username: root
+    password: example
   jpa:
     database: POSTGRESQL
     show-sql: true
@@ -20,4 +20,3 @@ server:
 endpoints:
   cors:
     allowed-headers: "Content-Type"
-

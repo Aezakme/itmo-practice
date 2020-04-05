@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
     @Query("SELECT new com.itmo.practice.repositories.BookInfo(B.title, B.author, O.name, O.address, A.amount)\n" +
