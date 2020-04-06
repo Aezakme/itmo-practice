@@ -1,14 +1,14 @@
 package com.itmo.practice.services;
 
-import com.itmo.practice.repositories.AvailableRepository;
-import com.itmo.practice.repositories.BookInfo;
-import com.itmo.practice.model.Book;
+import com.itmo.practice.entity.Book;
+import com.itmo.practice.entity.BookInfo;
+import com.itmo.practice.repositories.AvailabilityRepository;
 import com.itmo.practice.repositories.BookRepository;
 import com.itmo.practice.repositories.OfficeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -17,7 +17,7 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
     @Autowired
-    private AvailableRepository availableRepository;
+    private AvailabilityRepository availabilityRepository;
     @Autowired
     private OfficeRepository officeRepository;
 
@@ -33,7 +33,7 @@ public class BookService {
         return sb.toString();
     }
     public String getBookInfo(Long id) {
-        List<BookInfo> bookInfos = bookRepository.getInfoById(id);
+        List<BookInfo> bookInfos = bookRepository.findAvailabilityById(id);
         StringBuilder sb = new StringBuilder();
         boolean bookDataAdded = false;
         for (BookInfo bookInfo : bookInfos) {
@@ -48,9 +48,9 @@ public class BookService {
             }
 
             sb.append("Office name: ")
-                    .append(bookInfo.getOffice_name())
+                    .append(bookInfo.getAddress())
                     .append(", Address: ")
-                    .append(bookInfo.getOffice_address())
+                    .append(bookInfo.getAddress())
                     .append(", Amount: ")
                     .append(bookInfo.getAmount())
                     .append("<br>");
@@ -66,19 +66,18 @@ public class BookService {
                 bookId = book.getId();
             }
         }
-        return  bookId;
+        return bookId;
     }
 
-    public void insertBook(BookInfo bookInfo) {
-        Long bookId = bookIdByTitleAndAuthor(bookInfo.getTitle(), bookInfo.getAuthor());
-        if (bookId != null) {
-            availableRepository.increaseAmount(bookId, bookInfo.getOffice_name(), bookInfo.getAmount());
+    public void insertBook(Book book) {
+        List<Book> books = bookRepository.findBooksByTitleAndAuthor(book.getTitle(), book.getAuthor());
+        if (!books.isEmpty()) {
             return;
         }
-        bookId = (long) bookRepository.uniqueBookCount();
-        bookRepository.insertBook(bookId, bookInfo.getTitle(), bookInfo.getAuthor());
-        Long availabilityId = (long) availableRepository.availabilityCount();
-        Long officeId = officeRepository.getOfficeId(bookInfo.getOffice_name());
-        availableRepository.insertAvailability(availabilityId, bookId, officeId, bookInfo.getAmount());
+        if (book.getYear() == null) {
+            book.setYear(new Date(0));
+        }
+
+        bookRepository.insertBook(book.getTitle(), book.getAuthor(), book.getDescription(), book.getYear());
     }
 }

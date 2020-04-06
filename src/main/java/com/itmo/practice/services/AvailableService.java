@@ -1,7 +1,8 @@
 package com.itmo.practice.services;
 
-import com.itmo.practice.model.Available;
-import com.itmo.practice.repositories.AvailableRepository;
+import com.itmo.practice.entity.Availability;
+import com.itmo.practice.entity.Book;
+import com.itmo.practice.repositories.AvailabilityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,17 +12,23 @@ import java.util.List;
 public class AvailableService {
 
     @Autowired
-    private AvailableRepository availableRepository;
+    private AvailabilityRepository availabilityRepository;
 
-    public List<Available> getList() {
-        return availableRepository.findAll();
+    public List<Availability> getAllAvailabilities() {
+        return availabilityRepository.findAll();
     }
 
-    public String allAvailabilities() {
-        StringBuilder sb = new StringBuilder();
-        for (Available available : getList()) {
-            sb.append(available.getId()).append("; ");
+    public void addAvailableBook(Availability availability) {
+        Availability av = availabilityRepository.findByBookIdAndOfficeId(availability.getBook_id(), availability.getOffice_id());
+        if (av != null) {
+            av.setAmount(av.getAmount() + availability.getAmount());
+            availabilityRepository.save(av);
+        } else {
+            availabilityRepository.insertAvailability(availability.getBook_id(), availability.getOffice_id(), availability.getAmount());
         }
-        return sb.toString();
+    }
+
+    public List<Book> getBooksByOfficeId(Long id) {
+        return availabilityRepository.booksByOfficeId(id);
     }
 }

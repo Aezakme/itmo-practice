@@ -1,10 +1,8 @@
-package com.itmo.practice.model;
+package com.itmo.practice.entity;
 
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.*;
-import java.util.Set;
 
 @Entity(name = "offices")
 public class Office {

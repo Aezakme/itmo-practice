@@ -1,8 +1,9 @@
-package com.itmo.practice.model;
+package com.itmo.practice.entity;
 
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity(name = "books")
 public class Book {
@@ -13,7 +14,7 @@ public class Book {
     String author;
     String description;
     String title;
-    String year;
+    Date year;
 
     public Long getId() {
         return id;
@@ -47,11 +48,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getYear() {
+    public Date getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(Date year) {
         this.year = year;
     }
 }
