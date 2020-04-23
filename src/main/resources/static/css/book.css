@@ -1,9 +1,9 @@
 html {
     --description-color: #3e3e3e;
-    --ref-color: #3d9bc6;
+    --ref-color: /*#3d9bc6*/ #1b75bb;
     --year-color: #282828;
     --border-color: #c3c3c3;
-    --av-card-color: rgba(98, 255, 123, 0.16);
+    --av-card-color: /*rgba(98, 255, 123, 0.16)*/ #a6d7f3;
     --title-color: #404040;
     --number-color: rgba(49, 145, 27, 0.71);
 
@@ -11,8 +11,12 @@ html {
 }
 
 body {
-    box-sizing: border-box;
-    margin: 0;
+    align-items: center;
+
+    justify-content: center;
+
+    height: 100%;
+    margin: 0px;
 }
 
 .container {
@@ -125,6 +129,7 @@ body {
     padding: 2rem;
 
     background-color: var(--av-card-color);
+    border-radius: 5px;
 }
 
 .availability_container table {
@@ -179,5 +184,3 @@ body {
 .availability_container table tr {
     border-bottom : 1px solid var(--border-color);
 }
-
-

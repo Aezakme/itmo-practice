@@ -1,0 +1,233 @@
+html {
+  --dark-blue-color: #1b75bb;
+  --input-border-color: rgba(156, 136, 155, 0.45);
+  --green-color: #8DC63F;
+  --light-blue-color: #a6d7f3;
+  overflow-y: scroll;
+  height: 100%;
+  font-family: "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  justify-content: center;
+
+  height: 100%;
+  margin: 0px;
+}
+
+.content {
+  display: grid;
+  grid-template-areas: 'header header' 'add random' 'footer footer';
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.add,
+.random {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 50px;
+}
+
+.add {
+  grid-area: add;
+}
+.add_text,
+.random_text {
+  height: 40px;
+  width: 250px;
+  background-color: var(--green-color);
+  border-radius: 5px;
+
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding-top:15px;
+  margin-bottom:30px;
+  font-family: 'Sen', sans-serif;
+}
+
+.random {
+  grid-area: random;
+}
+
+#title, #author, #year, #amount {
+  width: 80%;
+  height: 20px;
+
+  padding: 7px;
+  margin: 10px;
+
+  border: solid 1px var(--input-border-color);
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.office {
+  width: 80%;
+  height: 34px;
+
+  padding: 7px;
+  margin: 10px;
+
+  border: solid 1px var(--input-border-color);
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.book_info,
+.random_books {
+  height:fit-content;
+  width: 90%;
+}
+
+.book_info {
+  display: grid;
+  grid-template-areas: 'left right' 'description description' 'add_button add_button';
+  grid-template-columns: 50% 50%;
+  border-radius: 5px;
+  padding: 40px;
+  min-height: 400px;
+  background-color: var(--light-blue-color);
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.left {
+  grid-area: left;
+}
+
+.right {
+  grid-area: right;
+}
+.right {
+  grid-area: right;
+  padding-top: 56px;
+}
+
+#amount {
+  width: 20%;
+}
+.search {
+  grid-area: search;
+  color: white;
+  background-color: var(--dark-blue-color);
+  border: 1px solid var(--dark-blue-color);
+  border-width: 0;
+
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+}
+
+.fa-search {
+  font-size: 30px;
+}
+
+::placeholder {
+  font-size: 15px;
+}
+
+#description {
+  width: 90%;
+  height: 100px;
+  padding: 7px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  grid-area: description;
+
+  border: solid 1px var(--input-border-color);
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.add_wrapper {
+  grid-area: add_button;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.add_button {
+  width: 20%;
+  height: 60px;
+  color: white;
+  background-color: var(--dark-blue-color);
+  border: 1px solid var(--dark-blue-color);
+  border-width: 0;
+  border-radius: 40px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.fa-plus-circle {
+  font-size: 20px;
+}
+
+.random_books {
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  justify-content: stretch;
+}
+
+.photo_wrap {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 220px;
+  /*border: 1px solid var(--dark-blue-color);*/
+  padding: 10px;
+  margin: 0 10px 10px 0;
+  align-items: center;
+}
+
+.title, .author {
+  text-align: center;
+  width: 130px;
+  height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 15px;
+}
+.title {
+  margin: 0 0 5px 0;
+}
+.photo {
+  overflow: hidden;
+  width: 130px;
+  height: 160px;
+  border: 1px solid var(--dark-blue-color);
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.photo > img {
+  width: 100%;
+  height: auto;
+}
+
+
+textarea {
+  resize: none;
+}
+
+:active, :focus {
+  outline: none;
+}

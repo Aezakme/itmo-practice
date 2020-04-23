@@ -28,7 +28,6 @@ public class AvailabilityController {
         return availableService.getAllAvailabilities();
     }
 
-
     @ApiOperation(value = "Get info by book id", notes = "--")
     @GetMapping(value = "/{id}")
     public List<Book> getBookInfo(@PathVariable long id) {

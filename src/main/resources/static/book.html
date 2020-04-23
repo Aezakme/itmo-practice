@@ -1,11 +1,30 @@
 <!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
 <html lang="en">
 <head>
+    <script src="https://kit.fontawesome.com/2b52cbe477.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>BookPage</title>
     <link rel="stylesheet" type="text/css" href="css/book.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
 </head>
 <body>
+    <header class="header">
+
+        <form class="form">
+            <i class="fas fa-book"></i>
+            <h1 class="search_title"> BookCrossing</h1>
+            <input id="location"
+                   class="location_input"
+                   oninput="onInput(this)"
+                   autocomplete="off"
+                   onclick ="suggestRecent()"
+                   placeholder="Search...">
+            <button class="search"><i class="fas fa-search"></i></button>
+            <ul class="suggested"></ul>
+        </form>
+    </header>
     <main class="container">
         <article class="book_container">
             <section class="cover">
@@ -43,5 +62,19 @@
             </div>
         </article>
     </main>
+    <footer class="footer">
+        <div class="wrapper">
+            <div class="contacts">
+                <div>
+                    <img class="mail" src="img/src_img_mail-icon.png" alt="mail">
+                    <a class="footer_link" href="mailto:bookcrossing@epam.com">bookcrossing@epam.com</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy 2020 «‎<a class="footer_link" href="">EpamBookCrossing</a>»
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
