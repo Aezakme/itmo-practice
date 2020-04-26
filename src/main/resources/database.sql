@@ -1,6 +1,6 @@
 create table books
 (
-    id          bigint                 not null,
+    id          serial                 not null,
     title       character varying(255) not null,
     author      character varying(255) not null,
     description text,
@@ -10,7 +10,7 @@ create table books
 
 create table offices
 (
-    id      bigint                 not null,
+    id      serial                 not null,
     "name"  character varying(255) not null,
     address character varying(255) not null,
     primary key (id)
@@ -18,7 +18,7 @@ create table offices
 
 create table availability
 (
-    id        bigint  not null,
+    id        serial  not null,
     book_id   bigint  not null,
     office_id bigint  not null,
     amount    integer not null,
@@ -27,17 +27,17 @@ create table availability
     foreign key (office_id) references offices (id)
 );
 
-insert into books (id, title, author)
-values (0, 'first_book', 'test author'),
-       (1, 'second_book', 'test author'),
-       (2, 'third_book', 'test author'),
-       (3, 'fourth_book', 'test author'),
-       (4, 'fifth_book', 'test author');
+insert into books (title, author)
+values ('first_book', 'test author'),
+       ('second_book', 'test author'),
+       ('third_book', 'test author'),
+       ('fourth_book', 'test author'),
+       ('fifth_book', 'test author');
 
-insert into offices (id, name, address)
-values (0, 'first_office', 'posadskaya'),
-       (1, 'second_office', 'levashovsky');
+insert into offices (name, address)
+values ('first_office', 'posadskaya'),
+       ('second_office', 'levashovsky');
 
-insert into availability (id, book_id, office_id, amount)
-values (0, 0, 0, 5),
-       (1, 0, 1, 10);
+insert into availability (book_id, office_id, amount)
+values (1, 1, 5),
+       (1, 2, 10);

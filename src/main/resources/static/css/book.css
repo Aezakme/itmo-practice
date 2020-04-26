@@ -1,0 +1,186 @@
+html {
+    --description-color: #3e3e3e;
+    --ref-color: /*#3d9bc6*/ #1b75bb;
+    --year-color: #282828;
+    --border-color: #c3c3c3;
+    --av-card-color: /*rgba(98, 255, 123, 0.16)*/ #a6d7f3;
+    --title-color: #404040;
+    --number-color: rgba(49, 145, 27, 0.71);
+
+    font-family: "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+    align-items: center;
+
+    justify-content: center;
+
+    height: 100%;
+    margin: 0px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 3rem;
+
+    width: 100%;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+}
+
+.book_container {
+    display: grid;
+
+    min-width: 30rem;
+
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+
+    border-radius: 10px;
+}
+
+.book_container .cover {
+    padding: 20px;
+
+    grid-column: span 1;
+    grid-row: span 1;
+
+}
+
+.book_container .cover img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: top center;
+}
+
+.book_container .info {
+
+    padding: 20px;
+
+    grid-column: span 1;
+    grid-row: span 1;
+
+    font-weight: normal;
+}
+
+.book_container .info .title {
+    margin: 0.5rem  0 1rem 0;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    color: var(--title-color);
+}
+
+.book_container .info .author {
+    margin: 1rem 0;
+
+    color: var(--ref-color);
+
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.book_container .info .year {
+    margin: 1rem 0;
+
+    color: lightgray;
+    font-size: 0.9rem;
+    font-weight: lighter;
+
+}
+
+.book_container .info .year .number {
+    margin-left: 0.5rem;
+    color: var(--title-color);
+}
+
+.book_container .info .description {
+    margin-top: 3rem;
+
+    color: var(--description-color);
+    font-size: 0.9rem;
+    font-weight: lighter;
+    line-height: 1.5rem;
+    letter-spacing: 0.03rem;
+}
+
+.availability_container {
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    font-size: 1rem;
+
+    padding: 2rem;
+
+    min-width: 20rem;
+}
+
+.availability_container .card {
+    width: 100%;
+
+    padding: 2rem;
+
+    background-color: var(--av-card-color);
+    border-radius: 5px;
+}
+
+.availability_container table {
+    width: 100%;
+
+    border-collapse: collapse;
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+.availability_container table caption {
+    padding-bottom: 0.5rem;
+
+    color: var(--title-color);
+
+    font-weight: bold;
+    font-size: 1.3rem;
+
+    text-align: left;
+}
+
+.availability_container td {
+    padding: 1.5rem 0 0.5rem 0;
+
+    white-space: nowrap;
+
+    color: var(--description-color);
+}
+
+.availability_container .office {
+    text-align: left;
+    font-weight: bolder;
+}
+
+.availability_container .address {
+    color: var(--ref-color);
+
+    font-weight: lighter;
+    font-style: italic;
+}
+
+
+.availability_container .number {
+    color: var(--number-color);
+
+    text-align: right;
+
+    font-weight: bold;
+}
+
+.availability_container table tr {
+    border-bottom : 1px solid var(--border-color);
+}

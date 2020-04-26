@@ -14,13 +14,12 @@ public class MasterController {
 
     @Autowired
     private BookService bookService;
-
     @ApiOperation(value = "----", notes = "---")
     @GetMapping(value = "/")
     public String getMainPage() {
         return bookService.allBooks();
     }
-
+    /*
     //Just for example
 
     @ApiOperation(value = "----", notes = "---")
@@ -35,4 +34,5 @@ public class MasterController {
     public String putData(@RequestParam("key") String key, @RequestParam("value") String value) {
         return null;
     }
+    */
 }

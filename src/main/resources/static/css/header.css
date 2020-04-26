@@ -1,0 +1,145 @@
+html {
+    --location-border-color: rgba(156, 136, 155, 0.45);
+    --search-button-color: #1b75bb;
+    --header-background-color: #26A9E0;
+    --suggested-element-focus-hover-color: #a6d7f3;
+}
+.form {
+    margin-top: 35px;
+    display: grid;
+    grid-template-areas: 'blank h1 blank2' 'icon input search';
+    grid-template-columns: 140px 514px 65px;
+    color: var(--header-background-color);
+}
+
+.search_title {
+    text-align: center;
+    padding-left: 5px;
+    grid-area: h1;
+
+    margin-bottom: 5px;
+
+    color: white;
+
+    font-family: 'Sen', sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.location_input {
+    grid-area: input;
+    width: 500px;
+    height: 40px;
+
+    padding: 7px;
+
+    border: solid 1px var(--location-border-color);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    font-family: 'Sen', sans-serif;
+    font-size: 20px;
+}
+
+.location_input::placeholder {
+}
+
+ul {
+    display: none;
+    margin-left:140px;
+    position: absolute;
+    top: 160px;
+    width: 506px;
+    margin-top: 1px;
+    padding-left: 0px;
+
+    border-top: 2px solid var(--header-background-color);
+    border-left: 2px solid var(--header-background-color);
+    border-right: 2px solid var(--header-background-color);
+
+    font-size: 15px;
+
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    width: 506px;
+    height: 55px;
+    background-color: white;
+}
+
+li button {
+    width: 506px;
+    height: 55px;
+
+    padding-top: 5px;
+    padding-left: 6px;
+
+
+    color: black;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 2px;
+    border-bottom-color: var(--header-background-color);
+    cursor: default;
+    background-color: transparent;
+    font-family: "Lucida Sans", Arial, sans-serif;
+
+    text-align: inherit;
+    z-index: 999999;
+}
+
+li button:hover,
+li button:focus {
+    background-color: var(--suggested-element-focus-hover-color);
+}
+
+span {
+    padding-top: 5px;
+}
+
+i {
+    grid-area: icon;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    background-color: var(--header-background-color);
+}
+
+.search {
+    grid-area: search;
+    color: white;
+    background-color: var(--search-button-color);
+    border: 1px solid var(--search-button-color);
+    border-width: 0;
+
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
+.fa-search {
+    font-size: 30px;
+}
+
+::placeholder {
+    font-size: 15px;
+}

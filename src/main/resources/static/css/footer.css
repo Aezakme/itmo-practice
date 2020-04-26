@@ -1,0 +1,51 @@
+html {
+    --footer-link-color: #4c4cd8;
+}
+.footer {
+    grid-area: footer;
+    margin-top: 50px;
+    border-top: 1px solid darkgrey;
+}
+.wrapper {
+    display: flex;
+
+    height: 60px;
+    padding: 20px 0 10px 0;
+
+    font-size: 14px;
+}
+
+.contacts {
+    width: 40%;
+    height: 60px;
+    padding-left: 60px;
+
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.mail {
+    display: inline-block;
+
+    width: auto;
+    height: 13px;
+    padding-bottom: 2px;
+
+    vertical-align: bottom;
+}
+
+.copyright {
+    right: 0;
+    bottom: 0;
+
+    justify-content: right;
+
+    width: 60%;
+    height: 60px;
+    padding-right: 60px;
+
+    text-align: right;
+}
+
+.footer_link {
+    color: var(--footer-link-color);
+}
