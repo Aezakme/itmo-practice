@@ -45,7 +45,7 @@ body {
   width: 250px;
   background-color: var(--green-color);
   border-radius: 5px;
-
+  cursor: pointer;
   text-align: center;
   color: white;
   font-weight: bold;

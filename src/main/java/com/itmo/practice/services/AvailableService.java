@@ -31,4 +31,8 @@ public class AvailableService {
     public List<Book> getBooksByOfficeId(Long id) {
         return availabilityRepository.booksByOfficeId(id);
     }
+
+    public List<Availability> getByBookId(Long id) {
+        return availabilityRepository.findByBookId(id);
+    }
 }

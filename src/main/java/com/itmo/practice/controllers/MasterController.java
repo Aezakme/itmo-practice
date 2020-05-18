@@ -4,35 +4,30 @@ package com.itmo.practice.controllers;
 import com.itmo.practice.services.BookService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
+@RequestMapping("/")
 public class MasterController {
 
-    @Autowired
-    private BookService bookService;
-    @ApiOperation(value = "----", notes = "---")
+
+    @ApiOperation(value = "Get info by book id", notes = "--")
+    @GetMapping(value = "/book/{id}", produces = "application/json")
+    public String getBookInfo(@PathVariable String id) {
+        return "book";
+    }
+
+
+    @ApiOperation(value = "Get main page", notes = "--")
     @GetMapping(value = "/")
-    public String getMainPage() {
-        return bookService.allBooks();
-    }
-    /*
-    //Just for example
-
-    @ApiOperation(value = "----", notes = "---")
-    @GetMapping(value = "/data")
-    public String getDataByKey(@RequestParam("key") String key) {
-        return null;
+    public String getBookInfo() {
+        return "main";
     }
 
-
-    @ApiOperation(value = "----", notes = "---")
-    @PutMapping(value = "/data")
-    public String putData(@RequestParam("key") String key, @RequestParam("value") String value) {
-        return null;
-    }
-    */
 }

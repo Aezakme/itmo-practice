@@ -2,7 +2,6 @@ package com.itmo.practice.controllers;
 
 
 import com.itmo.practice.entity.Availability;
-import com.itmo.practice.entity.Book;
 import com.itmo.practice.services.AvailableService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +29,8 @@ public class AvailabilityController {
 
     @ApiOperation(value = "Get info by book id", notes = "--")
     @GetMapping(value = "/{id}")
-    public List<Book> getBookInfo(@PathVariable long id) {
-        return availableService.getBooksByOfficeId(id);
+    public List<Availability> getBookInfo(@PathVariable long id) {
+        return availableService.getByBookId(id);
     }
 
 

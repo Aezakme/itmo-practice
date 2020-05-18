@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/book")
@@ -22,13 +24,13 @@ public class BookController {
 
     @ApiOperation(value = "Get all books", notes = "Get titles of all the books in base")
     @GetMapping(value = "/all", produces = "application/json")
-    public String getMainPage() {
+    public List<Book> getMainPage() {
         return bookService.allBooks();
     }
 
     @ApiOperation(value = "Get info by book id", notes = "--")
-    @GetMapping(value = "/{id}", produces = "application/json")
-    public String getBookInfo(@PathVariable long id) {
+    @GetMapping(value = "/value/{id}", produces = "application/json")
+    public Book getBookInfo(@PathVariable long id) {
         return bookService.getBookInfo(id);
     }
 

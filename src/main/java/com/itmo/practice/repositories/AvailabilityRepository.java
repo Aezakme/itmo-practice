@@ -31,4 +31,9 @@ public interface AvailabilityRepository extends JpaRepository<Availability, Long
             "FROM availability a " +
             "WHERE a.book_id=:bookId and a.office_id=:officeId")
     Availability findByBookIdAndOfficeId(@Param("bookId") Long bookId, @Param("officeId") Long officeId);
+
+    @Query("SELECT a " +
+            "FROM availability a " +
+            "WHERE a.book_id=:bookId" )
+    List<Availability> findByBookId(@Param("bookId") Long bookId);
 }
